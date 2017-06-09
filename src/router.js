@@ -23,8 +23,8 @@ const router = [
     path: '/search',
     name: 'search',
     component(resolve) {
-      require.ensure(['./views/search/search'], () => {
-        resolve(require('./views/search/search'))
+      require.ensure(['./views/search'], () => {
+        resolve(require('./views/search'))
       })
     },
     meta: { keepAlive: true }
@@ -33,8 +33,8 @@ const router = [
     path: 'player/:id',
     neme: 'player',
     component(resolve) {
-      require.ensure(['./views/detail/player/player'], () => {
-        resolve(require('./views/detail/player/player'))
+      require.ensure(['./views/player'], () => {
+        resolve(require('./views/player'))
       })
     },
     meta: { keepAlive: false }
@@ -43,8 +43,8 @@ const router = [
     path: 'playlist/:id',
     neme: 'playlist',
     component(resolve) {
-      require.ensure(['./views/detail/platList/platList'], () => {
-        resolve(require('./views/detail/platList/platList'))
+      require.ensure(['./views/playList'], () => {
+        resolve(require('./views/playList'))
       })
     },
     meta: { keepAlive: false }
@@ -53,8 +53,8 @@ const router = [
     path: 'singer/:id',
     neme: 'singer',
     component(resolve) {
-      require.ensure(['./views/detail/singer/singer'], () => {
-        resolve(require('./views/detail/singer/singer'))
+      require.ensure(['./views/singer'], () => {
+        resolve(require('./views/singer'))
       })
     },
     meta: { keepAlive: false }
@@ -63,8 +63,8 @@ const router = [
     path: 'album/:id',
     neme: 'album',
     component(resolve) {
-      require.ensure(['./views/detail/album/album'], () => {
-        resolve(require('./views/detail/album/album'))
+      require.ensure(['./views/album'], () => {
+        resolve(require('./views/album'))
       })
     },
     meta: { keepAlive: false }
@@ -73,8 +73,8 @@ const router = [
     path: 'user/:id',
     neme: 'user',
     component(resolve) {
-      require.ensure(['./views/detail/user/user'], () => {
-        resolve(require('./views/detail/user/user'))
+      require.ensure(['./views/user'], () => {
+        resolve(require('./views/user'))
       })
     },
     meta: { keepAlive: false }

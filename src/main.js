@@ -2,11 +2,11 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueLazyload from 'vue-lazyload'
 import App from './App'
-import routers from './router'
-import { loadFromlLocal } from './common/js/store'
+import routes from './router'
+import { loadFromLocal } from './common/js/store'
 import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'
-import 'assets/themes.less'
+import 'assets/theme.less'
 
 Vue.use(VueRouter)
 Vue.use(MuseUI)
@@ -23,8 +23,8 @@ const scrollBehavior = (to, from, savedPosition) => {
     let position = {}
     if(to.hash) {
       position.selector = to.hash
-    }
-    if(to.mached.some(m => m.meta.scrollToTop)) {
+    } 
+    if(to.matched.some(m => m.meta.scrollToTop)) {
       position.x = 0
       position.y = 0
     }
@@ -35,7 +35,7 @@ const router = new VueRouter({
   mode: 'history',
   'linkActiveClass': 'active',
   routes,
-  acrollBehavior
+  scrollBehavior
 })
 const routerApp = new Vue({
   router,

@@ -28,7 +28,25 @@ const store = new Vuex.Store({
     change: false // 判断是更改的事件还是播放的事件
   },
   getters: {
-
+    isShowAsideMenu: state => state.isShowAsideMenu,
+    loadingShow: state => state.loadingShow,
+    audio: state => state.audio,
+    playing: state => state.playing,
+    loading: state => state.loading,
+    showDetail: state => state.showDetail,
+    durationTime: state => state.durationTime,
+    currentIndex: state => state.currentIndex,
+    bufferedTime: state => state.bufferedTime,
+    tmpCurrentTime: state => state.tmpCurrentTime,
+    songList: state => state.songList,
+    change: state => state.change,
+    currentTime: state => state.currentTime,
+    prCurrentTime: state => {
+      return state.currentTime / state.durationTime * 100;
+    },
+    prBufferedTime: state => {
+      return state.bufferedTime / state.durationTime * 100;
+    }
   },
   mapMutations: {
 
