@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import store from './vuex/store'
 import VueRouter from 'vue-router'
 import VueLazyload from 'vue-lazyload'
 import App from './App'
@@ -39,6 +40,7 @@ const router = new VueRouter({
 })
 const routerApp = new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')
 if(!loadFromLocal('music', 'index', false)) {

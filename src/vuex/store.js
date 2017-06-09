@@ -49,7 +49,7 @@ const store = new Vuex.Store({
     }
   },
   mapMutations: {
-
+    
   },
   actions: {
 
