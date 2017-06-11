@@ -5,7 +5,7 @@
 			<tab :line-width="2" active-color="#b72712" defaultColor="#666" bar-active-color="#b72712" v-model="index">
 				<tab-item class="vux-center" :selected="type===item" v-for="(item,index) in tabList" @click="type=item" :key="index" style="background-color:#fdfffe;">{{item}}</tab-item>
 			</tab>
-			<!-- 轮播图 -->
+			<!-- tab栏对应的内容 -->
 			<swiper v-model="index" height="100%" :show-dots="false" class="swiper-container" style="width:100%;height:100%;padding-bottom:90px;background-color:#eef2f1;">
 				<swiper-item :key="1">
 					<div class="tab-swiper vux-center">

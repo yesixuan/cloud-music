@@ -66,7 +66,8 @@ export default {
 			swiperOption: {
 				pagination: '.swiper-pagination',
 				paginationClickable: true,
-				autoplay: 2500
+				autoplay: 2500,
+				loop: true
 			},
 			slide_list: imgList
 		}

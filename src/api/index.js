@@ -47,7 +47,7 @@ export default {
   },
 
   // 获取歌单详情, id 为歌单id
-  getPlaylistDetailResource (id) {
+  getPlayListDetailResource (id) {
     return axios.get(PlaylistDetailResource, {
       params: {
         id: id

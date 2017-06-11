@@ -48,7 +48,7 @@ const store = new Vuex.Store({
       return state.bufferedTime / state.durationTime * 100;
     }
   },
-  mapMutations: {
+  mutations: {
     showAsideMenu(state, flag) {
       state.isShowAsideMenu = flag;
     },
