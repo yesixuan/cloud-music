@@ -12,7 +12,7 @@
 
 <script>
 import VHeader from '../components/header.vue'
-import AsideMenu from '../components/asideMenu.vue'
+import AsideMenu from '../components/asideMenu/asideMenu'
 export default {
 	components: {VHeader, AsideMenu},
 	computed: {

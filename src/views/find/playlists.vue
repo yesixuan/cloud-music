@@ -30,7 +30,6 @@ export default {
 	},
 	mounted() {
 		this.getTopPlaylistResource()
-		console.log(this.playlists)
 	},
 	methods: {
 		type() {

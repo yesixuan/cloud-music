@@ -18,9 +18,6 @@ export default {
         path: '/playLists/' + id
       })
     }
-  },
-  mounted() {
-    // console.log(this.data)
   }
 }
 </script>
