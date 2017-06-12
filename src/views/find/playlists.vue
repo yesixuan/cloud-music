@@ -7,7 +7,7 @@
 		<div class="playLists">
 			<ul>
 				<li v-for="data in playlists">
-					<v-play-list :data="data"></v-play-list>
+					<play-list :data="data"></play-list>
 				</li>
 			</ul>
 		</div>
@@ -17,10 +17,10 @@
 <script>
 import api from '../../api/index.js'
 import { ButtonTab, ButtonTabItem } from 'vux'
-import vPlayList from '../playList'
+import playList from '../../components/playList'
 export default {
 	name: 'playlists',
-	components: {vPlayList, ButtonTab, ButtonTabItem},
+	components: {playList, ButtonTab, ButtonTabItem},
 	data() {
 		return{
 			index: 0,
@@ -30,6 +30,7 @@ export default {
 	},
 	mounted() {
 		this.getTopPlaylistResource()
+		console.log(this.playlists)
 	},
 	methods: {
 		type() {
@@ -81,5 +82,5 @@ export default {
 				list-style none
 				li
 					padding-top 10px
-					flex 0 0 49%	
+					flex 0 0 49%
 </style>
