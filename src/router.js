@@ -30,8 +30,8 @@ const router = [
     meta: { keepAlive: true }
   },
   { // 歌曲播放页
-    path: 'player/:id',
-    neme: 'player',
+    path: '/player/:id',
+    name: 'player',
     component(resolve) {
       require.ensure(['./views/player'], () => {
         resolve(require('./views/player'))
@@ -40,8 +40,8 @@ const router = [
     meta: { keepAlive: false }
   },
   { // 歌曲列表页
-    path: 'playlist/:id',
-    neme: 'playlist',
+    path: '/playLists/:id',
+    name: 'playLists',
     component(resolve) {
       require.ensure(['./views/playList'], () => {
         resolve(require('./views/playList'))
@@ -50,8 +50,8 @@ const router = [
     meta: { keepAlive: false }
   },
   { // 歌手详情页
-    path: 'singer/:id',
-    neme: 'singer',
+    path: '/singer/:id',
+    name: 'singer',
     component(resolve) {
       require.ensure(['./views/singer'], () => {
         resolve(require('./views/singer'))
@@ -60,8 +60,8 @@ const router = [
     meta: { keepAlive: false }
   },
   { // 专辑详情页
-    path: 'album/:id',
-    neme: 'album',
+    path: '/album/:id',
+    name: 'album',
     component(resolve) {
       require.ensure(['./views/album'], () => {
         resolve(require('./views/album'))
@@ -70,8 +70,8 @@ const router = [
     meta: { keepAlive: false }
   },
   { // 用户详情页
-    path: 'user/:id',
-    neme: 'user',
+    path: '/user/:id',
+    name: 'user',
     component(resolve) {
       require.ensure(['./views/user'], () => {
         resolve(require('./views/user'))
@@ -81,7 +81,13 @@ const router = [
   },
   {
     path: '*',
-    redirect: '/index'
+    name: '404',
+    component(resolve) {
+      require.ensure(['./views/404'], () => {
+        resolve(require('./views/404'))
+      })
+    },
+    meta: { keepAlive: false }
   }
 ]
 
