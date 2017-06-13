@@ -6,6 +6,7 @@
         {{data.name}}
         <span class="trans">{{albumTrans}}</span>
       </p>
+      <p class="album-author">{{data.artist.name}}</p>
     </div>
   </div>
 </template>

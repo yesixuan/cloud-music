@@ -45,7 +45,7 @@ export default {
 		// 点击进入歌曲播放页
 		showDetail() {
 			this.$router.push({
-				name:'player', 
+				name:'player',
 				params:{
 					id: this.audio.id
 				}
@@ -76,7 +76,7 @@ export default {
 		loadError() {
 			// 判断是第一次打开应用还是后来程序加载的路径有错误，根据src是否为空来判断
 			if(document.getElementById('audioPlay').currentSrc) {
-				this.$refs.toast.show('歌曲路径加载错误')
+				// this.$refs.toast.show('歌曲路径加载错误')
 				this.loading = false
 				this.$store.commit('closeLoading')
 				// TODO 将playBar重置下

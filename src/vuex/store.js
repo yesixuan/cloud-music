@@ -152,7 +152,19 @@ const store = new Vuex.Store({
     }
   },
   actions: {
-
+    getSong ({commit}, id) {
+      commit('openLoading');
+      api.getMusicUrlResource(id)
+      .then(res => {
+        let url = res.data.data[0].url;
+        commit('setAudio');
+        commit('setLocation', url);
+      })
+      .catch((error) => {     // 错误处理
+          console.log(error);
+          window.alert('获取歌曲信息出错！');
+      });
+    }
   }
 })
 

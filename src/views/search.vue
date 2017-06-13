@@ -144,59 +144,53 @@ const hotKeywordsList = () => ['向死而生', 'burning', '林俊杰', '不为�
 				}
 			},
 			getSingleResource() {
-        this.$store.commit('update_loading', true);
-        api.getSearchResource(this.$route.query.keywords, 1, 30, 0)
-          .then((response) => {
-            this.songs = response.data.result.songs;
-            // $nextTick() 在dom 重新渲染完后执行
-            this.$nextTick(() => {
-              this.$store.commit('update_loading', false);
-            });
-          })
-          .catch((response) => {
-            console.log(response);
-          });
-      },
-      //  获取搜索专辑
-      getSingerResource() {
-        api.getSearchResource(this.$route.query.keywords, 100, 30, 0)
-          .then((response) => {
-            this.singer = response.data.result.artists;
-          })
-          .catch((response) => {
-            console.log(response);
-          });
-      },
-      //  获取搜索歌手
-      getAlbumResource() {
-        api.getSearchResource(this.$route.query.keywords, 10, 30, 0)
-          .then((response) => {
-            this.albums = response.data.result.albums;
-          })
-          .catch((response) => {
-            console.log(response);
-          });
-      },
-      //  获取搜索歌单
-      getPlayListResource() {
-        api.getSearchResource(this.$route.query.keywords, 1000, 30, 0)
-          .then((response) => {
-            this.playlist = response.data.result.playlists;
-          })
-          .catch((response) => {
-            console.log(response);
-          });
-      },
-      //  获取搜索用户
-      getUserResource() {
-        api.getSearchResource(this.$route.query.keywords, 1002, 30, 0)
-          .then((response) => {
-            this.user = response.data.result.userprofiles;
-          })
-          .catch((response) => {
-            console.log(response);
-          });
-	      }
+				this.$store.commit('update_loading', true)
+				api.getSearchResource(this.$route.query.keywords, 1, 30, 0)
+				.then(res => {
+					this.songs = res.data.result.songs
+					this.$nextTick(() => {
+						this.$store.commit('update_loading', false)
+					})
+				})
+				.catch(err => {
+					console.log(err)
+				})
+			},
+			getAlbumResource() {
+				api.getSearchResource(this.$route.query.keywords, 10, 30, 0)
+				.then(res => {
+					this.albums = res.data.result.albums
+				})
+				.catch(err => {
+					console.log(err)
+				})
+			},
+			getSingerResource() {
+				api.getSearchResource(this.$route.query.keywords, 100, 30, 0)
+				.then(res => {
+					this.singer = res.data.result.artists
+				})
+				.catch(err => {
+					console.log(err)
+				})
+			},
+			getPlayListResource() {
+				api.getSearchResource(this.$route.query.keywords, 1000, 30, 0)
+				.then(res => {
+					this.playlist = res.data.result.playlists
+				})
+				.catch(err => {
+					console.log(err)
+				})
+			},
+			getUserResource() {
+				api.getSearchResource(this.$route.query.keywords, 1002, 30, 0)
+				.then(res => {
+					this.user = res.data.result.userprofiles
+				})
+				.catch(err => {
+					console.log(err)
+				})
 			}
 		}
 	}

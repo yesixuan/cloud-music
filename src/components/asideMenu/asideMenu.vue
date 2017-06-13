@@ -80,5 +80,4 @@ export default {
 		.author
 			color #fff
 			font-size 16px
-
 </style>
