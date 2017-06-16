@@ -1,6 +1,6 @@
 <template>
 	<transition name="toast-fade">
-		<div class="toast-wrap v-show="showing>{{text}}</div>
+		<div class="toast-wrap" v-show="showing">{{text}}</div>
 	</transition>
 </template>
 

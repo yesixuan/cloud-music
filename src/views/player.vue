@@ -43,7 +43,7 @@
 						<div class="btn d-mode"></div>
 						<div class="btn d-prev" @click="playPrev"></div>
 						<div class="btn d-play btn-big" @click="togglePlay" :class="{'d-pause': playing}"></div>
-						<div class="btn d-next" @click="palyNext"></div>
+						<div class="btn d-next" @click="playNext"></div>
 						<div class="btn d-list" @click="showList"></div>
 					</div>
 				</div>
@@ -88,6 +88,9 @@ export default {
 		}
 	},
 	methods: {
+		playNext() {
+			return // TODO
+		},
 		toggleShow() {
 			this.showLyric = !this.showLyric
 		},
@@ -105,7 +108,8 @@ export default {
 			this.$store.commit('toggleDetail')
 		},
 		changeTime(value) { // 改变播放时间
-			let time = (vlaue*this.durationTime) / 100
+			console.log('改变播放时间')
+			let time = (value*this.durationTime) / 100
 			this.$store.commit('changeTime', time)
 			this.$store.commit('setChange', true)
 		},
@@ -113,6 +117,7 @@ export default {
 			this.afterLrc = [{'txt': '正在加载中...'}]
 			if(!id) {
 				this.afterLrc = [{'txt': '这里显示歌词'}]
+				return
 			}
 			api.getLyricResource(id)
 			.then(res => {
@@ -128,7 +133,7 @@ export default {
 		},
 		parselyric(lyric) {
 			let lines = lyric.split('\n')
-			let pattern = /\[\d{2}:\d{2}.\d{2}]/g
+			let pattern = /\[\d{2}:\d{2}.\d{2}\]/g
 			let result = []
 			while (!pattern.test(lines[0])) {
 				lines = lines.slice(1)
@@ -142,6 +147,7 @@ export default {
 				let timeArr = timeString.split(':')
 				result.push([parseInt(timeArr[0], 10) * 60 + parseFloat(timeArr[1], value)])
 			}
+			console.log(result)
 			result.sort((a, b) => {
 				return a[0] - b[0]
 			})
@@ -150,7 +156,7 @@ export default {
 		showList() {
 			this.$refs.bottomSheet.show()
 		},
-		...mapMutations(['playnext', 'playPrev'])
+		...mapMutations(['playNext', 'playPrev'])
 	},
 	computed: {
 		...mapGetters(['currentTime', 'bufferedTime', 'durationTime', 'prCurrentTime', 'audio', 'playing', ]),
@@ -167,7 +173,7 @@ export default {
 		}
 	},
 	filters: {
-		time(vlaue) {
+		time(value) {
 			let length = Math.floor(parseInt(value))
 			let minute = Math.floor(value / 60)
 			if(minute < 10) {

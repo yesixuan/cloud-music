@@ -54,7 +54,7 @@ export default {
 		},
 		// 点击弹出歌曲列表页
 		showList() {
-			this.refs.bottomSheet.show()
+			this.$refs.bottomSheet.show('hehehe')
 		},
 		// 点击播放歌曲
 		canPlaySong() {
@@ -76,7 +76,7 @@ export default {
 		loadError() {
 			// 判断是第一次打开应用还是后来程序加载的路径有错误，根据src是否为空来判断
 			if(document.getElementById('audioPlay').currentSrc) {
-				// this.$refs.toast.show('歌曲路径加载错误')
+				this.$refs.toast.show('歌曲路径加载错误')
 				this.loading = false
 				this.$store.commit('closeLoading')
 				// TODO 将playBar重置下
@@ -86,14 +86,14 @@ export default {
 			this.toggleStatus()
 			this.$store.commit('playNext')
 		},
-		// 更新进度条事件
+		// 更新进度条事件（当播放事件改变时触发该函数）
 		updateTime() {
 			let vm = this
 			let audioPlay = document.getElementById('audioPlay')
-			let time = parseInt(audioPlay.currentTime)
+			let time = parseInt(audioPlay.currentTime) // 播放的当前时间
 			// 防止未加载完成时，歌曲加载错误
-			audioPlay.onsuspend = function() {
-				let timeRange = audioPlay.buffered
+			audioPlay.onsuspend = function() { // 当媒体数据加载被阻止时触发该函数
+				let timeRange = audioPlay.buffered // 已缓冲音视频的时间范围（如果用户跳播，将得到多个元素）
 				if(timeRange.length>0 && audioPlay.duration>0) {
 					vm.$store.commit('updateCurrentTime', parseInt(timeRange.end(0)))
 				}

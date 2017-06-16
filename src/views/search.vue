@@ -13,7 +13,7 @@
 			<div class="hot" v-if="isShowHot">
 				<p>热门搜索</p>
 				<ul class="keywords">
-					<li v-for="item of hotKeywords" v-text="item" @click="toSearch(item)" class="keywords"></li>
+					<li v-for="item of hotKeywords" v-text="item" @click="toSearch(item)" class="keyword"></li>
 				</ul>
 			</div>
 			<div v-else class="search-list">
